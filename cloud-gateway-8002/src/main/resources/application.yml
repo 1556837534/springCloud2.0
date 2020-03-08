@@ -1,0 +1,22 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: cloud-gateway
+    #路由网关配置
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh #路由id
+          uri: http://localhost:8001 #路由的提供地址
+          predicates:
+            - path=/payment/get/**  # 断言路径
+        - id: payment_routh2 #路由id
+          uri: http://localhost:8001 #路由的提供地址
+          predicates:
+          - path=/payment/add/**  # 断言路径
+
+
+# 这里要注册到注册中心
+

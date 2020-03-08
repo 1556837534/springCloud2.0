@@ -1,0 +1,27 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: seata-orde-service
+  cloud:
+    alibaba:
+      seata:
+        # 自定义事务组的名称需要与seata 中配置的一致
+        tx-service-group: lwhy_tx_group
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name:
+feign:
+  hystrix:
+    enabled: false
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  config-location:

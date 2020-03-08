@@ -1,0 +1,17 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.239.137:8848  #服务注册地址
+# 消费者要访问的微服务名称（可配可不配 这里是为了好写服务名 集合了feign 这个就不要写了）
+service-url:
+  nacos-user-service: http://cloudalibaba-payment-service
+# 激活 feign 对sentinel 的支持
+feign:
+  sentinel:
+    enable: true
